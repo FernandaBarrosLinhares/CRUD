@@ -26,20 +26,16 @@ app.get("/contato", function (req, res){
     res.send("Contato cadastrado com sucesso!")
 
 })
+//Exercicio 4 falta testar
 
-
-  //Exercicio 4 falta testar
+app.get("/produto/:id", (req, res) =>{
     
-    // const {id} = req.query
-// se o paramentro esta presente
-    // if(!id) {
-    //     return res.status(400).json({
-    //         error: "Id da query obrigatória : id"
-    //     })
-    // }
-    // res.json({message:'Você pesquisou por: ${id}'})
+    const id = req.params.id;
+    res.send('ID do produto: ${id}')
+});
 
-    //Exercicio 5 falta testar
+
+    //Exercicio 5 
 
     app.get("/", function (req, res){
         res.sendFile(__dirname + "/public/index.html")
