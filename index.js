@@ -2,13 +2,18 @@ const express = require("express")
 
 const app = express()
 
+let users = [];
+
 app.use(express.json());
+
     
-    
-    //Exercicio 6
+app.get('/', (req, res) => {
+    res.json("Sucesso!");
+});
+
 
     // Rota para obter todas as pessoas
-    app.get('/users', (req, res) => { 
+app.get('/users', (req, res) => { 
         res.json(users);
     });
     
@@ -39,7 +44,7 @@ app.use(express.json());
             res.status(404).send('User not found.');
             return;
         }
-        users[index] = { ...userss[index], ...newData };
+        users[index] = { ...users[index], ...newData };
         res.status(200).send('User added successfully.');
     });
     
